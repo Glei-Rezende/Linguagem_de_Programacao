@@ -6,6 +6,12 @@ public class Robos {
     private double payload; // em kg
     private double raioAlcance; // em metros
 
+    public Robos(String fabricante, double payload, double raioAlcance) {
+        this.fabricante = fabricante;
+        this.payload = payload;
+        this.raioAlcance = raioAlcance;
+    }
+
     // Construtor padrão
     public Robos() {
         this.fabricante = "Desconhecido";
