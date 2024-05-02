@@ -1,16 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="atividades_lp.tarefa_lp.Controller">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="419.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="atividades_lp.tarefa_lp.ImageController">
+    <tabs>
+        <Tab text="Imagem 1">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <ImageView fitHeight="158.0" fitWidth="305.0" layoutX="21.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@carro.jpg" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="nomecarro" layoutX="97.0" layoutY="218.0" promptText="Digite o fabricante" />
+                        <TextField fx:id="modelocarro" layoutX="96.0" layoutY="255.0" promptText="Digite o modelo" />
+                        <TextField fx:id="corcarro" layoutX="97.0" layoutY="296.0" promptText="Digite a cor" />
+                        <Button fx:id="cadastrarcarro" layoutX="96.0" layoutY="331.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" />
+                        <Label layoutX="35.0" layoutY="222.0" text="Fabricante" />
+                        <Label layoutX="35.0" layoutY="259.0" text="Modelo" />
+                        <Label layoutX="35.0" layoutY="300.0" text="Cor" />
+                        <ListView fx:id="carroListView" layoutX="35.0" layoutY="370.0" prefHeight="158.0" prefWidth="305.0" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Imagem 2">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <ImageView fitHeight="158.0" fitWidth="305.0" layoutX="21.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@moto.jpg" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="fabricantemoto" layoutX="97.0" layoutY="218.0" promptText="Digite o fabricante" />
+                        <TextField fx:id="modelomoto" layoutX="96.0" layoutY="255.0" promptText="Digite o modelo" />
+                        <TextField fx:id="cormoto" layoutX="97.0" layoutY="296.0" promptText="Digite a cor" />
+                        <Button fx:id="cadastrarmoto" layoutX="96.0" layoutY="331.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" />
+                        <Label layoutX="35.0" layoutY="222.0" text="Fabricante" />
+                        <Label layoutX="35.0" layoutY="259.0" text="Modelo" />
+                        <Label layoutX="38.0" layoutY="300.0" text="Cor" />
+                        <ListView fx:id="motoListView" layoutX="35.0" layoutY="370.0" prefHeight="158.0" prefWidth="305.0" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Imagem 3">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <ImageView fitHeight="158.0" fitWidth="305.0" layoutX="21.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@celular.jpg" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="fabricantecelular" layoutX="96.0" layoutY="218.0" promptText="Digite a fabricante" />
+                        <TextField fx:id="numero_cameracelular" layoutX="96.0" layoutY="255.0" promptText="Digite cameras" />
+                        <TextField fx:id="capacidadecelular" layoutX="97.0" layoutY="296.0" promptText="Digite capacidade" />
+                        <Button fx:id="cadastrarcelular" layoutX="96.0" layoutY="331.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" />
+                        <Label layoutX="28.0" layoutY="222.0" text="Fabricante" />
+                        <Label layoutX="34.0" layoutY="259.0" text="Cameras" />
+                        <Label layoutX="21.0" layoutY="300.0" text="Capacidade" />
+                        <ListView fx:id="comidaListView" layoutX="35.0" layoutY="363.0" prefHeight="158.0" prefWidth="305.0" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

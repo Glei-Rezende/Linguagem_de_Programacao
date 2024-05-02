@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Carro {
+public class Moto {
 
     private  String fabricante;
     private  String modelo;
     private  String cor;
-    private static List<Carro> listacarro = new ArrayList<>();
+    private static List<Moto> listamoto = new ArrayList<>();
 
 
-    public Carro(String modelo, String tipo, String cor) {
+    public Moto(String fabricante, String modelo, String cor) {
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.cor = cor;
@@ -26,12 +26,12 @@ public class Carro {
         return modelo;
     }
 
-    public String getcor() {
+    public String getCor() {
         return cor;
     }
 
-    public void setListCarro() {
-        listacarro.add(this); // Adiciona o objeto à lista ao ser criado
+    public void setListMoto() {
+        listamoto.add(this); // Adiciona o objeto à lista ao ser criado
     }
 
     @Override

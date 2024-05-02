@@ -4,13 +4,15 @@ public class Principal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite o numerador e o denominador da primeira fração:");
+        System.out.println("Digite o numerador primeira fração:");
         int num1 = scanner.nextInt();
+        System.out.println("Digite o denominador da primeira fração:");
         int den1 = scanner.nextInt();
         Fracao fracao1 = new Fracao(num1, den1);
 
-        System.out.println("Digite o numerador e o denominador da segunda fração:");
+        System.out.println("Digite o numerador da segunda fração:");
         int num2 = scanner.nextInt();
+        System.out.println("Digite o denominador da primeira fração:");
         int den2 = scanner.nextInt();
         Fracao fracao2 = new Fracao(num2, den2);
 

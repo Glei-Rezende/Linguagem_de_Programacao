@@ -1,56 +1,106 @@
 package atividades_lp.tarefa_lp;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
+import javafx.collections.FXCollections;
 
 public class Controller {
+    //carro
     @FXML
-    private TextField modeloTextField;
+    private Button cadastrarcarro;
     @FXML
-    private TextField corTextField;
+    private TextField fabricantecarro;
     @FXML
-    private TextField capacidadeTextField;
-
+    private TextField modelocarro;
     @FXML
-    private Button criarObjetoCarro;
-
+    private TextField corcarro;
     @FXML
     private ListView<String> carroListView;
-    private ObservableList<String> carroNames = FXCollections.observableArrayList();
+    @FXML
+    private ObservableList<String> carroLista = FXCollections.observableArrayList();
+    //moto
+    @FXML
+    private Button cadastrarmoto;
+    @FXML
+    private TextField fabricantemoto;
+    @FXML
+    private TextField modelomoto;
+    @FXML
+    private TextField cormoto;
+    @FXML
+    private ListView<String> motoListView;
+    @FXML
+    private ObservableList<String> motoLista = FXCollections.observableArrayList();
+    //celular
+    @FXML
+    private Button cadastrarcelular;
+    @FXML
+    private TextField fabricantecelular;
+    @FXML
+    private TextField numerocameracelular;
+    @FXML
+    private TextField capacidadecelular;
+    @FXML
+    private ListView<String> celularListView;
+    @FXML
+    private ObservableList<String> celularLista = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        criarObjetoCarro.setOnAction(event -> {
-            String modelo = modeloTextField.getText();
-            String cor = corTextField.getText();
-            String capacidadeStr = capacidadeTextField.getText();
+        cadastrarcarro.setOnAction(event -> {
+            String fabricante = fabricantecarro.getText();
+            String modelo = modelocarro.getText();
+            String cor = corcarro.getText();
 
-            try {
-                int capacidade = Integer.parseInt(capacidadeStr);
+            //Criar um novo objeto Carro
+            Carro carro = new Carro(fabricante, modelo, cor);
 
-                Carro carro = new Carro(modelo, cor, capacidade);
+            //Adicione o carro a lista
+            carro.setListCarro();
 
-                // Adicionar o carro à lista interna (supondo que setListCarro() adicione a uma lista interna na classe Carro)
-                carro.setListCarro();
+            //Adicionar o carro a lista
+            carroLista.add("Carro " + carroLista.size() + ": " + carro.toString());
 
-                // Aqui estamos presumindo que `carro.toString()` está corretamente implementado para exibir informações do carro
-                String carroInfo = carro.toString();
-                // Suponha que carro.aprovado() retorne um booleano indicando se o carro está aprovado
-                boolean isAprovado = carro.aprovado();
+            //Atualizar a lista na interface do usuario
+            carroListView.setItems(carroLista);
+        });
+        cadastrarmoto.setOnAction(event -> {
+            //Obter os valores inseridos pelo usuario
+            String fabricante = fabricantemoto.getText();
+            String modelo = modelomoto.getText();
+            String cor = cormoto.getText();
 
-                String statusAprovacao = isAprovado ? "Aprovado" : "Não Aprovado";
-                carroNames.add("Carro " + carroNames.size() + ": " + carroInfo + " | " + statusAprovacao);
+            //Criar um novo objeto moto
+            Moto moto = new Moto(fabricante, modelo, cor);
 
-                carroListView.setItems(carroNames);
+            //Adiciona a moto a lista
+            moto.setListMoto();
 
-            } catch (NumberFormatException e) {
-                System.out.println("Erro: Por favor, insira um número válido para a capacidade.");
-            }
+            //Adicionar a moto a lista
+            motoLista.add("Moto " + motoLista.size() + ": " + moto.toString());
+
+            //Atualizar a lista na interface do usuario
+            motoListView.setItems(motoLista);
+        });
+        cadastrarcelular.setOnAction(event -> {
+            //Obter os valores inseridos pelo usuario
+            String fabricante = fabricantecelular.getText();
+            String numerocamera = numerocameracelular.getText();
+            String capacidade = capacidadecelular.getText();
+
+            //Criar um novo objeto Celular
+            Celular celular = new Celular(fabricante, numerocamera, capacidade);
+
+            //Adicionar o celular a lista
+            celularLista.add("Celular " + celularLista.size() + ":" + celular.toString());
+
+            //Atualizar a lista na interface do usuario
+            celularListView.setItems(celularLista);
+
         });
     }
 }
-
