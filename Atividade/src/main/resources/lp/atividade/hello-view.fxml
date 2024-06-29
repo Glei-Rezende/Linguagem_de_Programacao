@@ -1,36 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="419.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lp.atividade.HelloController">
-    <tabs>
-        <Tab text="Image 1">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <children>
-                        <ImageView fitHeight="158.0" fitWidth="305.0" layoutX="21.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@carro.jpg" />
-                            </image>
-                        </ImageView>
-                        <TextField fx:id="fabricantecarro" layoutX="97.0" layoutY="218.0" promptText="Digite o nome" />
-                        <TextField fx:id="modelocarro" layoutX="96.0" layoutY="255.0" promptText="Digite o modelo" />
-                        <TextField fx:id="corcarro" layoutX="97.0" layoutY="296.0" promptText="Digite a cor" />
-                        <Button fx:id="cadastrarcarro" layoutX="96.0" layoutY="331.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" />
-                        <Label layoutX="35.0" layoutY="222.0" text="Fabricante" />
-                        <Label layoutX="35.0" layoutY="259.0" text="Modelo" />
-                        <Label layoutX="35.0" layoutY="300.0" text="Cor" />
-                        <ListView fx:id="carroListView" layoutX="35.0" layoutY="370.0" prefHeight="158.0" prefWidth="305.0" />
-                    </children></AnchorPane>
-            </content>
-        </Tab>
-    </tabs>
-</TabPane>
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lp.atividade.CarroController">
+    <children>
+        <ImageView fitHeight="158.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Carro.jpg" />
+            </image>
+        </ImageView>
+        <GridPane hgap="10" prefHeight="98.0" prefWidth="480.0" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="29.0" />
+                <ColumnConstraints percentWidth="71.0" />
+            </columnConstraints>
+            <children>
+                <Label text="Fabricante:">
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin></Label>
+                <TextField fx:id="fabricanteField" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets right="15.0" />
+               </GridPane.margin></TextField>
+                <Label text="Modelo:" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin></Label>
+                <TextField fx:id="modeloField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="15.0" />
+               </GridPane.margin></TextField>
+                <Label text="Cor:" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin></Label>
+                <TextField fx:id="corField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="15.0" />
+               </GridPane.margin></TextField>
+            </children>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+        <HBox spacing="10">
+            <Button onAction="#handleAddCarro" text="Adicionar">
+            <HBox.margin>
+               <Insets left="28.0" />
+            </HBox.margin></Button>
+            <Button onAction="#handleUpdateCarro" text="Atualizar">
+            <HBox.margin>
+               <Insets left="109.0" />
+            </HBox.margin></Button>
+            <Button onAction="#handleDeleteCarro" text="Deletar">
+            <HBox.margin>
+               <Insets left="119.0" />
+            </HBox.margin></Button>
+        </HBox>
+        <TableView fx:id="carroTable">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50" text="ID" />
+                <TableColumn fx:id="fabricanteColumn" prefWidth="150" text="Fabricante" />
+                <TableColumn fx:id="modeloColumn" prefWidth="150" text="Modelo" />
+                <TableColumn fx:id="corColumn" prefWidth="150" text="Cor" />
+            </columns>
+        </TableView>
+    </children>
+</VBox>
